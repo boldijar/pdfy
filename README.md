@@ -32,18 +32,18 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.boldijar:pdfy:<latest-version>'
-	}
+    implementation 'com.github.boldijar:pdfy:<latest-version>'
+}
 ```
 
 Let the library know how to load the images. I didn't wanted to include this in the library because people might want to use their own caching library, you can chech the demo to see how to do this with [Glide](https://github.com/bumptech/glide).
 
 ```
- class GlideLoader : PdfyImageLoader() {
-        override fun loadImage(path: String, imageView: ImageView) {
-            Glide.with(imageView).load(path).into(imageView)
-        }
+class GlideLoader : PdfyImageLoader() {
+    override fun loadImage(path: String, imageView: ImageView) {
+        Glide.with(imageView).load(path).into(imageView)
     }
+}
 ```
 
 And set the loader before you use the library:
