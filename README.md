@@ -60,3 +60,6 @@ pdfyView.setPdf(
     uniqueCacheName = "<somePdfId>" // optional, used for caching, default is a random UUID
 )
 ```
+
+
+!()[gif.gif]
