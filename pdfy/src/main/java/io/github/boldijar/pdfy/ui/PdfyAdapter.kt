@@ -29,12 +29,8 @@ class PdfyAdapter(private var pdfy: Pdfy, private val listener: Listener) :
             holder.progress.isVisible = false
             val imagePath = page.image
             val loader = PdfyParser.getImageLoader()
-            val fileExists = File(imagePath).exists()
-            logError("Page $position is loaded! Yey, loading $imagePath, exists? $fileExists")
-
             loader.loadImage(imagePath, holder.imageView)
         } else {
-            logError("Can't load page $position, loading now!")
             holder.imageView.isVisible = false
             holder.progress.isVisible = true
             listener.loadPage(position)
