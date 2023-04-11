@@ -62,4 +62,5 @@ pdfyView.setPdf(
 ```
 
 
-!()[gif.gif]
+![](https://github.com/boldijar/pdfy/raw/main/gif.gif)
+
