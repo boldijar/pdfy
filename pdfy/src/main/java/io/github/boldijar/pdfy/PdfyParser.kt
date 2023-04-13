@@ -8,6 +8,7 @@ import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
 import io.github.boldijar.pdfy.ui.PdfyImageLoader
 import java.io.File
+import java.io.FileInputStream
 import java.io.FileOutputStream
 
 class PdfyParser(
@@ -34,6 +35,7 @@ class PdfyParser(
         return when (type) {
             PdfyType.FROM_ASSETS -> createPdfFileFromAssets(context)
             PdfyType.FROM_INTERNET -> createPdfFileFromInternet(context)
+            PdfyType.FROM_LOCAL_FILE -> createPdfFromLocalFile(context)
         }
     }
 
@@ -61,6 +63,17 @@ class PdfyParser(
         if (cachedFile.exists()) {
             return cachedFile
         }
+        val outputStream = FileOutputStream(cachedFile)
+        inputStream.copyTo(outputStream)
+        outputStream.flush()
+        outputStream.close()
+        inputStream.close()
+        return cachedFile
+    }
+
+    private fun createPdfFromLocalFile(context: Context): File {
+        val inputStream = FileInputStream(File(path))
+        val cachedFile = preparePdfFile(context)
         val outputStream = FileOutputStream(cachedFile)
         inputStream.copyTo(outputStream)
         outputStream.flush()

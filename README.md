@@ -61,6 +61,7 @@ pdfyView.setPdf(
 )
 ```
 
+You can also load it from assets, by using PdfyType.FROM_ASSETS and using the relative path after assets, or just use the LOCAL_FILE type, and use the absolute file path.
 
 ![](https://github.com/boldijar/pdfy/raw/main/gif.gif)
 
