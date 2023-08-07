@@ -16,7 +16,7 @@ fun Context.getScreenSize(): Pair<Int, Int> {
 }
 
 fun Context.getPedefeCache(): File {
-    val directory = cacheDir.resolve("io.github.boldijar.pdfy_cache")
+    val directory = cacheDir.resolve("io.github.boldijar.pdfy_cache_files")
     if (!directory.exists()) {
         directory.mkdir()
     }
