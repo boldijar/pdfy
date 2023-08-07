@@ -108,7 +108,7 @@ class PdfyParser(
         pageNumber: Int, renderer: PdfRenderer, size: Pair<Int, Int>, context: Context
     ): String {
         val page = renderer.openPage(pageNumber)
-        val bitmap = Bitmap.createBitmap(size.first, size.second, Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(page.width, page.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         canvas.drawColor(Color.WHITE)
         canvas.drawBitmap(bitmap, 0f, 0f, null)
